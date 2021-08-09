@@ -1,0 +1,51 @@
+.work-experience {
+  text-align: center;
+
+  &__heading {
+    font-family: "Roboto", sans-serif;
+    font-size: 3rem;
+    font-weight: 500;
+  }
+  &__content {
+    width: 100%;
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__item {
+    padding: 3rem 0;
+    flex-basis: 35%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &:not(:nth-last-child(-n + 2)) {
+      border-bottom: 1px solid black;
+    }
+
+    &--date {
+      color: #fca311;
+      font-size: 2.8rem;
+      font-weight: 500;
+    }
+
+    &--name {
+      font-size: 2.8rem;
+      font-weight: 500;
+      color: black;
+    }
+
+    &--work {
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: black;
+    }
+    &--place {
+      font-size: 2.4rem;
+      font-weight: 400;
+      color: rgba(0, 0, 0, 0.425);
+    }
+  }
+}

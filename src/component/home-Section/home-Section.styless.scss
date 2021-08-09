@@ -1,0 +1,86 @@
+.home-section {
+  max-width: 120rem;
+  padding: 130px 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+
+  &__left {
+    flex-basis: 50%;
+  }
+
+  &__heading-one {
+    font-family: "Quantico", sans-serif;
+    font-size: 4.5rem;
+  }
+  &__heading-two {
+    font-family: "Quantico", sans-serif;
+    color: #fca311;
+    font-size: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  &__text {
+    font-size: 2rem;
+    margin-bottom: 40px;
+  }
+
+  & hr {
+    width: 124px;
+    border: 5px solid black;
+    border-radius: 5px;
+    margin-bottom: 40px;
+  }
+
+  &__btns {
+    margin-top: 5rem;
+    display: flex;
+    padding-right: 6rem;
+  }
+
+  &__right {
+    flex-basis: 50%;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__half__circle {
+    position: absolute;
+    top: 20px;
+    left: -40px;
+  }
+
+  &__dot-grid {
+    position: absolute;
+    top: 50%;
+    left: -230px;
+    transform: translate(0, -50%);
+  }
+
+  &__dot-grid-2 {
+    position: absolute;
+    top: 50%;
+    right: -80px;
+    transform: translate(0, -50%);
+    z-index: -1;
+  }
+
+  &__red-dymmy {
+    position: absolute;
+    top: 30%;
+    right: -170px;
+    transform: translate(0, -50%);
+  }
+
+  &__black-dymmy {
+    position: absolute;
+    top: 43%;
+    right: -120px;
+    transform: translate(0, -50%);
+  }
+}
