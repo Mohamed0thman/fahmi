@@ -3,6 +3,8 @@ import React from "react";
 import CustomButton from "../custom-button/custom-button.component";
 import Connections from "../connections/connections.component";
 
+import fahmi from "../../images/fahmi.png";
+
 import "./home-Section.styless.scss";
 
 const HomeSection = ({ home }) => {
@@ -27,7 +29,7 @@ const HomeSection = ({ home }) => {
         </div>
       </div>
       <div className="home-section__right">
-        <img src="../../images/fahmi.png" alt="" />
+        <img src={fahmi} alt="" />
       </div>
       <img
         className="home-section__half__circle"
