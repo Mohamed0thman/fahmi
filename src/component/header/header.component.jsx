@@ -31,7 +31,7 @@ const Header = ({
               visibleSection === "Home" ? "selected" : ""
             }`}
             onClick={() => {
-              history.push("/");
+              history.push("/fahmi");
               scrollTo(home.current);
             }}
           >
@@ -42,7 +42,7 @@ const Header = ({
               visibleSection === "About Me" ? "selected" : ""
             }`}
             onClick={() => {
-              history.push("/");
+              history.push("/fahmi");
               scrollTo(aboutMe.current);
             }}
           >
@@ -53,7 +53,7 @@ const Header = ({
               visibleSection === "Services" ? "selected" : ""
             }`}
             onClick={() => {
-              history.push("/");
+              history.push("/fahmi");
               scrollTo(services.current);
             }}
           >

@@ -89,7 +89,7 @@ function App() {
       <Switch>
         <Route
           exact
-          path="/"
+          path="/fahmi"
           render={() => (
             <HomePage
               scrollTo={scrollTo}
