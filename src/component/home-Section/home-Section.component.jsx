@@ -27,7 +27,7 @@ const HomeSection = ({ home }) => {
         </div>
       </div>
       <div className="home-section__right">
-        <img src="/images/fahmi.png" alt="" />
+        <img src="../../images/fahmi.png" alt="" />
       </div>
       <img
         className="home-section__half__circle"
