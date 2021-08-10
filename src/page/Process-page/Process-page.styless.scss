@@ -1,0 +1,25 @@
+.process-page {
+  &__process {
+    max-width: 120rem;
+    padding: 146px 100px;
+    position: relative;
+  }
+
+  &__content {
+    position: relative;
+    &:not(:last-of-type) {
+      margin-bottom: 220px;
+    }
+
+    &--line {
+      position: absolute;
+      z-index: -1;
+      top: 300px;
+      left: 50px;
+
+      &.left {
+        left: 280px;
+      }
+    }
+  }
+}

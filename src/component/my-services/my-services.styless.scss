@@ -1,4 +1,5 @@
 .my-services {
+  width: 100%;
   font-family: "Poppins", sans-serif;
   padding-top: 80px;
   position: relative;
@@ -8,7 +9,7 @@
     font-size: 3rem;
     font-weight: 500;
     text-align: center;
-    margin-bottom: 8rem;
+    margin-bottom: 90px;
 
     &::before,
     &::after {
@@ -26,34 +27,36 @@
     }
   }
   &__content {
-    margin-top: 4rem;
+    max-width: 120rem;
+    padding: 14px 100px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 
     &--heading {
-      font-size: 4rem;
+      font-size: 3.9rem;
       font-weight: 700;
-      margin-bottom: 6rem;
+      margin-bottom: 35px;
     }
   }
 
   &__rectangle {
     position: absolute;
     top: 0;
-    left: -150px;
+    left: 0;
   }
 
   &__ellipse {
     position: absolute;
     top: 90px;
-    left: -85px;
+    left: 0;
   }
 
   &__rectangle-brown {
     position: absolute;
     top: 90px;
-    right: -100px;
+    right: 0;
   }
 
   &__list {

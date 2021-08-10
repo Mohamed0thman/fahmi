@@ -16,6 +16,12 @@
     margin-right: 2rem;
   }
 
+  &:hover {
+    background-color: #fca311;
+    color: white;
+    border: none;
+  }
+
   &.active {
     background-color: #fca311;
     color: white;

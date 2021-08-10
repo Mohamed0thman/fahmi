@@ -1,6 +1,9 @@
 .tools-section {
+  max-width: 120rem;
+  margin: 0 auto;
   margin-top: 5rem;
   margin-bottom: 80px;
+  padding: 0 100px;
 
   display: flex;
   justify-content: space-between;
@@ -9,9 +12,7 @@
   position: relative;
 
   &__left {
-    width: 100%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
 

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter, NavLink, useLocation } from "react-router-dom";
+
+import CustomButton from "../custom-button/custom-button.component";
 
 import "./header.styless.scss";
 
@@ -13,55 +15,69 @@ const Header = ({
   visibleSection,
 }) => {
   const [yOffset, setYOffset] = useState(0);
+  const location = useLocation().pathname;
 
   window.addEventListener("scroll", function (e) {
     setYOffset(window.pageYOffset);
-
-    console.log("scroll");
   });
-  console.log("yOffset", yOffset);
 
   return (
     <div className={`header ${yOffset > 0 ? "active" : ""}`} ref={headerRef}>
       <div className="header__container">
         <div className="header__logo">F</div>
         <ul className="header__list">
-          <li
-            className={`header__item ${
-              visibleSection === "Home" ? "selected" : ""
-            }`}
-            onClick={() => {
-              history.push("/");
-              scrollTo(home.current);
-            }}
-          >
-            Home
-          </li>
-          <li
-            className={`header__item ${
-              visibleSection === "About Me" ? "selected" : ""
-            }`}
-            onClick={() => {
-              history.push("/");
-              scrollTo(aboutMe.current);
-            }}
-          >
-            About Me
-          </li>
-          <li
-            className={`header__item ${
-              visibleSection === "Services" ? "selected" : ""
-            }`}
-            onClick={() => {
-              history.push("/");
-              scrollTo(services.current);
-            }}
-          >
-            Services
-          </li>
-          <li className="header__item">
-            <Link to="my-process"> My UX Process</Link>
-          </li>
+          {location === "/" ? (
+            <>
+              <li
+                className={`header__item ${
+                  visibleSection === "Home" ? "selected" : ""
+                }`}
+                onClick={() => {
+                  scrollTo(home.current);
+                }}
+              >
+                Home
+              </li>
+              <li
+                className={`header__item ${
+                  visibleSection === "About Me" ? "selected" : ""
+                }`}
+                onClick={() => {
+                  scrollTo(aboutMe.current);
+                }}
+              >
+                About Me
+              </li>
+              <li
+                className={`header__item ${
+                  visibleSection === "Services" ? "selected" : ""
+                }`}
+                onClick={() => {
+                  scrollTo(services.current);
+                }}
+              >
+                Services
+              </li>
+              <li className="header__item">
+                <NavLink
+                  to="my-process"
+                  className="header__link"
+                  activeClassName="header__link--active"
+                >
+                  My UX Process
+                </NavLink>
+              </li>
+            </>
+          ) : (
+            <li
+              className="header__item--btn"
+              onClick={() => {
+                history.push("/");
+              }}
+            >
+              <CustomButton>Back to Home</CustomButton>
+            </li>
+          )}
         </ul>
         <img
           className="header__orange-dummy"

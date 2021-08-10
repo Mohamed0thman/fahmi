@@ -27,7 +27,7 @@ const Tools = () => {
                 <img src="/images/web-design.svg" alt="" />
                 <h4>UX Design</h4>
                 <p>Mobile App, Website</p>
-              </div>{" "}
+              </div>
               <h1>03</h1>
             </div>
           </div>
@@ -44,7 +44,7 @@ const Tools = () => {
         </div>
         <div className="tools-section__left__btn">
           <CustomButton active>
-            My UX Process{" "}
+            My UX Process
             <FontAwesomeIcon
               className="tools-section__left__btn-icon"
               icon={faArrowRight}

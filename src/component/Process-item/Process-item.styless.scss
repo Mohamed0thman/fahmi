@@ -1,0 +1,78 @@
+.process-item {
+  display: flex;
+  justify-content: space-between;
+
+  &__left {
+    flex-basis: 60%;
+  }
+
+  &__image {
+    width: 575px;
+    height: 348px;
+    margin-bottom: 33px;
+    border-radius: 14px;
+
+    & > img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 14px;
+      box-shadow: 1px 1px 4px 3px rgba(0, 0, 0, 0.17);
+    }
+
+    &--01 {
+      background: #63c6c6;
+    }
+
+    &--02 {
+      background: #ecedf2;
+    }
+
+    &--03 {
+      background: #41a9ea;
+    }
+
+    &--04 {
+      background: #ffffff;
+    }
+  }
+
+  &__heading {
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 3rem;
+    margin-bottom: 30px;
+
+    display: flex;
+    align-items: center;
+
+    & > span {
+      font-family: "Poppins";
+      font-size: 4.8rem;
+      font-weight: 700;
+      color: #efefef;
+      margin-right: 5px;
+    }
+  }
+
+  &__text {
+    font-family: "Roboto";
+    font-size: 1.9rem;
+    line-height: 1.7;
+  }
+
+  &__right {
+    font-family: "Poppins";
+    color: #efefef;
+    font-size: 28rem;
+    font-weight: 700;
+    line-height: 0.8;
+    margin-right: 3rem;
+  }
+
+  &.reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+/* Rectangle 614 */

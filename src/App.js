@@ -1,5 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import Header from "./component/header/header.component";
 import Footer from "./component/footer/footer.component";
@@ -22,6 +23,8 @@ const getDimensions = (ele) => {
 };
 
 const scrollTo = (ele) => {
+  console.log("ele,", ele);
+
   ele.scrollIntoView({
     behavior: "smooth",
     block: "start",
@@ -35,12 +38,7 @@ function App() {
   const aboutMe = useRef(null);
   const services = useRef(null);
 
-  // function handleToAboutMe() {
-  //   aboutMe.current.scrollIntoView({ behavior: "smooth" });
-  // }
-  // function handleToservies() {
-  //   services.current.scrollIntoView({ behavior: "smooth" });
-  // }
+  const location = useLocation().pathname;
 
   const sectionRefs = [
     { section: "Home", ref: home },
@@ -74,7 +72,11 @@ function App() {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [visibleSection]);
+  }, [visibleSection, location]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <div className="App">
@@ -86,6 +88,7 @@ function App() {
         services={services}
         visibleSection={visibleSection}
       />
+
       <Switch>
         <Route
           exact
