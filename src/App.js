@@ -1,12 +1,11 @@
 import { useRef, useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 
 import Header from "./component/header/header.component";
 import Footer from "./component/footer/footer.component";
 
 import HomePage from "./page/home-page/home-page.component";
-import processPage from "./page/Process-page/Process-page.component";
+import ProcessPage from "./page/Process-page/Process-page.component";
 
 import "./App.css";
 
@@ -102,7 +101,7 @@ function App() {
             />
           )}
         />
-        <Route exact path="/my-process" component={processPage} />
+        <Route exact path="/my-process" component={ProcessPage} />
       </Switch>
       <Footer />
     </div>

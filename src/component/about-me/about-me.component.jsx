@@ -1,10 +1,12 @@
-import React from "react";
-
-import Experience from "../Experience/Experience.component";
+import React, { useRef } from "react";
+import { useIntersection } from "react-use";
+import gsap from "gsap";
 
 import "./about-me.styless.scss";
 
-const AboutMe = ({ aboutMe }) => {
+const AboutMe = () => {
+  const aboutMe = useRef(null);
+
   const skills = [
     "UX DESIGN",
     "UI DESIGN",
@@ -16,6 +18,58 @@ const AboutMe = ({ aboutMe }) => {
     "SURVEYS",
     "DESIGN SYSTEM",
   ];
+
+  const intersection = useIntersection(aboutMe, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.7,
+  });
+
+  const headingFeadIn = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 1,
+      y: 0,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3,
+      },
+    });
+  };
+
+  const headingFeadOut = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 0,
+      y: -60,
+      ease: "power4.out",
+    });
+  };
+
+  const fadeIn = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 1,
+      y: -60,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3,
+      },
+    });
+  };
+
+  const fadeOut = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 0,
+      y: -20,
+      ease: "power4.out",
+    });
+  };
+
+  if (intersection && intersection.intersectionRatio > 0.7) {
+    fadeIn(".about-me");
+    headingFeadIn(".about-me__heading");
+  } else {
+    fadeOut(".about-me");
+    headingFeadOut(".about-me__heading");
+  }
 
   return (
     <div className="about-me" ref={aboutMe}>
@@ -45,8 +99,6 @@ const AboutMe = ({ aboutMe }) => {
       </div>
 
       <hr className="about-me__line" />
-
-      <Experience />
     </div>
   );
 };

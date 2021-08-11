@@ -1,14 +1,105 @@
-import React from "react";
-
-import Tools from "../tools/tools.component";
-import ProjectSection from "../project-section/project-section.component";
-import Reviews from "../reviews/reviews.component";
+import React, { useRef } from "react";
+import { useIntersection } from "react-use";
+import gsap from "gsap";
 
 import "./my-services.styless.scss";
 
-const MyService = ({ services }) => {
+const MyService = () => {
+  const Service = useRef(null);
+
+  const intersection = useIntersection(Service, {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.7,
+  });
+
+  const moveRight = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 1,
+      x: 0,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3,
+      },
+    });
+  };
+
+  const moveLeft = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 1,
+      x: 0,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3,
+      },
+    });
+  };
+
+  const moveRightOut = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 0,
+      x: -80,
+      ease: "power4.out",
+    });
+  };
+
+  const moveLeftOut = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 0,
+      x: 80,
+      ease: "power4.out",
+    });
+  };
+
+  const headingFeadIn = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 1,
+      y: 0,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3,
+      },
+    });
+  };
+
+  const headingFeadOut = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 0,
+      y: -60,
+      ease: "power4.out",
+    });
+  };
+  const itemFeadIn = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 1,
+      y: 0,
+      ease: "power4.out",
+      stagger: {
+        amount: 0.3,
+      },
+    });
+  };
+  const itemFeadOut = (ele) => {
+    gsap.to(ele, 1, {
+      opacity: 0,
+      y: -60,
+      ease: "power4.out",
+    });
+  };
+
+  if (intersection && intersection.intersectionRatio > 0.7) {
+    moveRight(".my-services__content--heading");
+    moveLeft(".my-services__gif");
+    headingFeadIn(".my-services__heading");
+    itemFeadIn(".my-services__item");
+  } else {
+    moveRightOut(".my-services__content--heading");
+    moveLeftOut(".my-services__gif");
+    headingFeadOut(".my-services__heading");
+    itemFeadOut(".my-services__item");
+  }
   return (
-    <div className="my-services" ref={services}>
+    <div className="my-services" ref={Service}>
       <h3 className="my-services__heading">My Services</h3>
       <div className="my-services__content">
         <div className="my-services__left">
@@ -45,10 +136,6 @@ const MyService = ({ services }) => {
         src="/images/Rectangle-brown.svg"
         alt=""
       />
-
-      <Tools />
-      <ProjectSection />
-      <Reviews />
     </div>
   );
 };

@@ -2,10 +2,7 @@ import React, { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import {
-  faArrowAltCircleLeft,
-  faArrowAltCircleRight,
-} from "@fortawesome/free-regular-svg-icons";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 import { ReactComponent as LeftArrow } from "../../assets/Left-arrow.svg";
 import { ReactComponent as RightArrow } from "../../assets/right-arrow.svg";
@@ -43,10 +40,20 @@ const ProjectSection = () => {
   const items = data.slice(start, end);
 
   const nextSlide = () => {
+    if (page === pages[pages.length - 1]) {
+      return setPage(1);
+    }
     setPage(page + 1);
   };
+  console.log(page, pages[0]);
+
+  console.log("page", page);
 
   const prevSlide = () => {
+    if (page === pages[0]) {
+      console.log("pages", pages.length - 1);
+      return setPage(pages.length);
+    }
     setPage(page - 1);
   };
 
@@ -100,19 +107,13 @@ const ProjectSection = () => {
         </ul>
 
         <div className="projects-section__header__icons">
-          {page === pages[0] ? null : (
-            <LeftArrow
-              className="projects-section__header__icon"
-              onClick={prevSlide}
-            />
-          )}
+          <div className="projects-section__icon" onClick={prevSlide}>
+            <FontAwesomeIcon icon={faAngleLeft} />
+          </div>
 
-          {page === pages[pages.length - 1] ? null : (
-            <RightArrow
-              className="projects-section__header__icon"
-              onClick={nextSlide}
-            />
-          )}
+          <div className="projects-section__icon" onClick={nextSlide}>
+            <FontAwesomeIcon icon={faAngleRight} />
+          </div>
         </div>
       </div>
       <div className="projects-section__projects">
