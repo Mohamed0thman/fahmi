@@ -19,26 +19,25 @@ import "./reviews.styless.scss";
 const slides = [
   {
     id: "1",
-    image: "/images/review-1.png",
+    image: "/images/review-1.svg",
   },
   {
     id: "2",
-    image: "/images/review-2.png",
+    image: "/images/review-2.svg",
   },
   {
     id: "3",
-    image: "/images/review-3.png",
+    image: "/images/review-3.svg",
   },
   {
     id: "4",
-    image: "/images/review-4.png",
+    image: "/images/review-4.svg",
   },
 ];
-
 const NextArrow = ({ onClick }) => {
   return (
     <div className="arrow next" onClick={onClick}>
-      <RightArrow />
+      <FontAwesomeIcon icon={faAngleRight} />
     </div>
   );
 };
@@ -46,7 +45,7 @@ const NextArrow = ({ onClick }) => {
 const PrevArrow = ({ onClick }) => {
   return (
     <div className="arrow prev" onClick={onClick}>
-      <LeftArrow />
+      <FontAwesomeIcon icon={faAngleLeft} />
     </div>
   );
 };
@@ -67,6 +66,17 @@ const Reviews = () => {
     prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setImageIndex(next),
   };
+
+  // nextArrow: (
+  //   <FontAwesomeIcon
+  //     className="arrow right"
+  //     icon={faAngleRight}
+  //     size={"1x"}
+  //   />
+  // ),
+  // prevArrow: (
+  //   <FontAwesomeIcon className="arrow left" icon={faAngleLeft} size={"1x"} />
+  // ),
 
   const handleOnClick = (image) => {
     setSelectedImage(image);

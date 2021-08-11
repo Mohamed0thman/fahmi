@@ -16,7 +16,6 @@
     font-size: 4.5rem;
     animation: moveToRight 1s ease-out;
     animation-fill-mode: forwards;
-    //animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   &__text {
     font-size: 2rem;
@@ -77,14 +76,14 @@
   &__dot-grid {
     position: absolute;
     top: 50%;
-    left: -230px;
+    left: -150px;
     transform: translate(0, -50%);
   }
 
   &__dot-grid-2 {
     position: absolute;
-    top: 50%;
-    right: -80px;
+    top: 55%;
+    right: 50px;
     transform: translate(0, -50%);
     z-index: -1;
   }

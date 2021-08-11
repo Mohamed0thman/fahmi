@@ -54,20 +54,6 @@
       object-fit: contain;
     }
   }
-  .arrow {
-    position: absolute;
-    cursor: pointer;
-    z-index: 10;
-  }
-  .next {
-    right: 0%;
-    top: 50%;
-  }
-
-  .prev {
-    left: 0%;
-    top: 50%;
-  }
 
   &__popup {
     width: 100%;
@@ -94,4 +80,39 @@
       }
     }
   }
+}
+
+.arrow {
+  color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: none;
+  border: 2px solid black;
+  font-size: 3.5rem;
+  cursor: pointer;
+  position: absolute;
+  z-index: 10;
+
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: #fca311;
+    color: #ffffff;
+    border: none;
+  }
+
+  &::before {
+    content: none;
+  }
+}
+.next {
+  right: 0%;
+  top: 50%;
+}
+
+.prev {
+  left: 0%;
+  top: 50%;
 }
