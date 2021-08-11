@@ -3,6 +3,7 @@
   max-width: 120rem;
   padding: 0 100px;
   margin: 0 auto;
+  margin-bottom: 90px;
   font-family: "Poppins";
   position: relative;
 
@@ -84,7 +85,7 @@
   &__projects {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 4rem;
+    margin-bottom: 70px;
   }
 
   &__item {
@@ -99,11 +100,27 @@
     animation: showSlide 0.3s ease-in-out 0.5s;
     animation-fill-mode: backwards;
     z-index: 10;
+    cursor: pointer;
 
     & > img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+
+    &--btn {
+      width: 280px;
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: 0.3s ease-in-out;
+    }
+
+    &:hover &--btn {
+      top: 85%;
+      opacity: 1;
     }
   }
 

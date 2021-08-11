@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 
+import CustomButton from "../custom-button/custom-button.component";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
-
-import { ReactComponent as LeftArrow } from "../../assets/Left-arrow.svg";
-import { ReactComponent as RightArrow } from "../../assets/right-arrow.svg";
+import {
+  faAngleLeft,
+  faAngleRight,
+  faArrowRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 import "./project-section.styless.scss";
 
@@ -19,15 +21,10 @@ const projects = [
 
 const ProjectSection = () => {
   const [data, setDate] = useState(projects);
-  const [current, setCurrent] = useState(0);
   const [page, setPage] = useState(1);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const nav = ["All", "App Design", "Web Design"];
-
-  console.log(page);
-
-  const length = data.length;
 
   const pages = [];
   for (let i = 1; i <= Math.ceil(data.length / 2); i++) {
@@ -119,8 +116,17 @@ const ProjectSection = () => {
       <div className="projects-section__projects">
         {items.map((item, i) => {
           return (
-            <div key={item.id} className={`projects-section__item`}>
+            <div key={item.id} className="projects-section__item">
               <img src={item.image} alt="" />
+              <div className="projects-section__item--btn">
+                <CustomButton active>
+                  View The Project
+                  <FontAwesomeIcon
+                    className="tools-section__left__btn-icon"
+                    icon={faArrowRight}
+                  />
+                </CustomButton>
+              </div>
             </div>
           );
         })}

@@ -2,6 +2,14 @@ import React, { useState } from "react";
 
 import Slider from "react-slick";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import {
+  faAngleLeft,
+  faAngleRight,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
+
 import { ReactComponent as LeftArrow } from "../../assets/Left-arrow.svg";
 import { ReactComponent as RightArrow } from "../../assets/right-arrow.svg";
 
@@ -45,6 +53,7 @@ const PrevArrow = ({ onClick }) => {
 
 const Reviews = () => {
   const [imageIndex, setImageIndex] = useState(0);
+  const [selectedImage, setSelectedImage] = useState();
 
   const settings = {
     className: "center",
@@ -57,6 +66,14 @@ const Reviews = () => {
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     beforeChange: (current, next) => setImageIndex(next),
+  };
+
+  const handleOnClick = (image) => {
+    setSelectedImage(image);
+  };
+
+  const closePopup = () => {
+    setSelectedImage();
   };
 
   return (
@@ -73,12 +90,25 @@ const Reviews = () => {
             <div
               key={slide.id}
               className={idx === imageIndex ? "slide activeSlide" : "slide"}
+              onClick={() => handleOnClick(slide.image)}
             >
               <img src={slide.image} alt="" />
             </div>
           ))}
         </Slider>
       </div>
+
+      {selectedImage && (
+        <div className="reviews__popup">
+          <div className="reviews__popup__content">
+            <img src={selectedImage} alt="" />
+
+            <span onClick={closePopup}>
+              <FontAwesomeIcon icon={faTimes} />
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
